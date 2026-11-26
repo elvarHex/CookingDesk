@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CookingDesk - Timer</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/timer.css">
+</head>
+<body>
+
+<header class="status-bar">
+    <div class="status-left status-center">
+        <img src="../img/transparentlogo.svg" class="logo" alt="Logo">
+        <span class="app-title">Timer</span>
+    </div>
+
+    <div class="status-right">
+        <button class="btn-back-circle" onclick="GoTools(event)">
+            <img src="../img/left.svg" alt="Back">
+        </button>
+    </div>
+</header>
+
+<main class="timer-container">
+    <div id="timerDisplay" class="timer-display">00:00:00</div>
+
+    <div class="timer-buttons">
+        <button class="btn btn-primary" onclick="openPopup()">Set</button>
+        <button id="startStopBtn" class="btn btn-primary" onclick="toggleTimer()">Start</button>
+        <button id="cancelBtn" class="btn btn-primary" onclick="resetTimer()">Cancel</button>
+    </div>
+</main>
+
+<audio id="alarmSound" src="../audios/timer.mp3" loop></audio>
+
+<div id="popupOverlay" class="popup-overlay">
+    <div class="popup">
+        <strong>Set a timer</strong>
+        <input type="number" id="hours" placeholder="Hours" min="0">
+        <input type="number" id="minutes" placeholder="Minutes" min="0" max="59">
+        <input type="number" id="seconds" placeholder="Seconds" min="0" max="59">
+        <button class="btn btn-primary" onclick="setTime()">Confirm</button>
+    </div>
+</div>
+
+<script src="js/timer.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

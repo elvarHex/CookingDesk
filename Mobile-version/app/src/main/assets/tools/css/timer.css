@@ -1,0 +1,59 @@
+.timer-container {
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 24px;
+}
+
+.timer-display {
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 4px;
+}
+
+.timer-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-danger {
+    background: #e53935;
+    color: white;
+}
+
+.btn-danger:hover {
+    opacity: 0.9;
+}
+
+.blink-yellow {
+    animation: blink 1s infinite;
+    background: #fdd835 !important;
+    color: black !important;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+.btn-danger {
+    transition: filter .08s ease, transform .08s ease;
+}
+
+button:active,
+a:active,
+.btn-danger:active {
+    filter: brightness(0.88);
+    transform: scale(0.94);
+}

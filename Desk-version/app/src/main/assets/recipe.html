@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CookingDesk - Recipe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/recipe.css">
+</head>
+
+<body>
+<header class="status-bar">
+    <div class="status-left">
+        <img src="img/transparentlogo.svg" class="logo">
+        <span class="app-title">Recipe</span>
+    </div>
+    <div class="status-right">
+        <button onclick="GoBackRecipe()" class="btn btn-primary">Back</button>
+        <span id="time">--:--</span>
+        <span id="battery">--%</span>
+        <img id="wifi" src="img/wifioff.svg" class="icon">
+    </div>
+</header>
+
+<div id="loadingOverlay">
+    <div class="loader-container">
+        <div class="loader-ring"></div>
+        <img src="img/transparentlogo.svg" class="loader-logo" alt="loading...">
+    </div>
+</div>
+
+<main class="recipe-container">
+    <div class="recipe-top">
+        <div>
+            <div id="recipeTitle" class="recipe-title"></div>
+            <div class="btn-row">
+                <a id="startCookingBtn" class="start-btn">Start cooking</a>
+                <button id="videoBtn" class="icon-btn" style="display:none;">
+                    <img src="img/video.svg">
+                </button>
+                <button id="saveBtn" class="icon-btn">
+                    <img src="img/save.svg">
+                </button>
+                <button id="removeBtn" class="icon-btn" style="display:none;">
+                    <img src="img/delete.svg">
+                </button>
+            </div>
+        </div>
+        <div>
+            <img id="recipeImage" class="recipe-image">
+        </div>
+    </div>
+
+    <div class="recipe-content">
+        <div class="ingredients">
+            <div class="section-title">Ingredients</div>
+            <ul id="ingredientsList"></ul>
+        </div>
+        <div>
+            <div class="section-title">Preparation</div>
+            <div id="instructions" class="instructions"></div>
+        </div>
+    </div>
+</main>
+
+<div id="videoModal" class="video-modal">
+    <div class="video-box">
+        <iframe id="videoFrame" allowfullscreen></iframe>
+        <button class="video-close" onclick="closeVideo()">Close</button>
+    </div>
+</div>
+
+<div id="deleteModal" class="modal-overlay">
+    <div class="modal-box">
+        <div>Remove this recipe from saved recipes?</div>
+
+        <button class="btn-delete" id="confirmDeleteBtn">
+            Yes
+        </button>
+
+        <button class="btn-cancel" id="cancelDeleteBtn">
+            Cancel
+        </button>
+    </div>
+</div>
+
+<div id="errorModal" class="modal-overlay">
+    <div class="modal-box">
+        <div id="errorText" style="color: #c62828; font-weight: bold; margin-bottom: 10px;"></div>
+        <div style="font-size: 14px; color: #555;">Try to reload the page</div>
+        <button class="btn-reload" onclick="handleReload()">Reload</button>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="APIsystem/apibridge.js"></script> <script src="js/recipe.js"></script> <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CookingDesk - Counter</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/counter.css">
+</head>
+<body>
+
+    <header class="status-bar">
+        <div class="status-left">
+            <img src="../img/transparentlogo.svg" class="logo" alt="Logo">
+            <span class="app-title">Counter</span>
+        </div>
+
+        <div class="status-right">
+            <a href="../tools.html" onclick="GoTools(event)" class="btn btn-primary">Back</a>
+            <span id="time">--:--</span>
+            <span id="battery">--%</span>
+            <img id="wifi" src="../img/wifioff.svg" class="icon" alt="WiFi Status">
+        </div>
+    </header>
+
+    <main class="counter-container">
+        <div class="counter-display">
+            <button id="decreaseBtn">-</button>
+            <span id="counterValue">0</span>
+            <button id="increaseBtn">+</button>
+        </div>
+
+        <div class="control-buttons">
+            <button class="btn-options" onclick="openPopup()">Options</button>
+            <button class="btn-reset" onclick="resetCounter()">Reset</button>
+        </div>
+    </main>
+
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup">
+            <strong>Counter settings</strong>
+            <label for="stepInput">Add/Remove per click</label>
+            <input type="number" id="stepInput" value="1" min="1">
+
+            <label for="maxInput">Maximum limit</label>
+            <input type="number" id="maxInput" value="0">
+
+            <label for="minInput">Minimum limit</label>
+            <input type="number" id="minInput" value="0">
+
+            <button class="btn btn-primary" onclick="applySettings()">Apply</button>
+        </div>
+    </div>
+
+    <script src="js/counter.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

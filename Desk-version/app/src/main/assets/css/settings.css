@@ -1,0 +1,416 @@
+:root {
+    --panel-width: 85%;
+    --base-padding: 4vh;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* ===========================
+   MAIN LAYOUT
+=========================== */
+
+.settings-wrapper {
+    width: 100vw;
+    height: calc(100vh - 64px);
+    display: flex;
+    gap: 2vh;
+    padding: 2vh;
+    box-sizing: border-box;
+}
+
+.settings-sidebar {
+    width: 220px;
+    min-width: 220px;
+    background: var(--surface);
+    border-radius: 4vh;
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    box-shadow: 0 1.5vh 4vh rgba(0,0,0,0.15);
+}
+
+.nav-btn {
+    border: none;
+    background: transparent;
+    padding: 1.8vh;
+    border-radius: 2vh;
+    font-size: 2vh;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s;
+    color: inherit;
+}
+
+.nav-btn:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.nav-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+.settings-content {
+    flex: 1;
+    background: var(--surface);
+    border-radius: 5vh;
+    padding: var(--base-padding);
+    box-shadow: 0 1.5vh 4vh rgba(0,0,0,0.15);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* ===========================
+   PAGES
+=========================== */
+
+.page {
+    display: none;
+}
+
+.active-page {
+    display: block;
+}
+
+.page h2 {
+    margin: 0 0 3vh 0;
+    font-size: 3.5vh;
+    color: var(--primary);
+}
+
+/* ===========================
+   SETTINGS ROWS
+=========================== */
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2vh;
+    padding: 2vh 0;
+    border-bottom: 0.1vh solid rgba(0,0,0,0.08);
+    font-size: 2.1vh;
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+}
+
+.setting-value {
+    opacity: 0.7;
+    font-size: 1.9vh;
+    text-align: right;
+    word-break: break-word;
+    max-width: 50%;
+}
+
+.setting-block {
+    margin-bottom: 2vh;
+}
+
+#binIdDisplay {
+    font-size: 1.8vh;
+    opacity: 0.75;
+    margin-top: 1.5vh;
+    line-height: 1.6;
+    word-break: break-all;
+}
+
+/* ===========================
+   LABELS + INFO ICON
+=========================== */
+
+.label-with-info {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+
+.info-circle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2vh;
+    padding: 0;
+    transition: transform 0.15s;
+}
+
+.info-circle:hover {
+    transform: scale(1.1);
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-danger {
+    background: #c62828;
+    color: white;
+}
+
+/* ===========================
+   FOOTER TEXTS
+=========================== */
+
+.project-link {
+    margin-top: 4vh;
+    font-size: 2vh;
+    opacity: 0.8;
+    font-weight: 700;
+}
+
+.made-by {
+    margin-top: 6vh;
+    text-align: center;
+    font-size: 1.9vh;
+    opacity: 0.7;
+}
+
+/* ===========================
+   ACTIONS
+=========================== */
+
+.actions {
+    margin-top: 4vh;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ===========================
+   MODALS
+=========================== */
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 5vw;
+}
+
+.modal-backdrop.show {
+    display: flex;
+}
+
+.modal {
+    width: 90%;
+    max-width: 450px;
+    background: var(--surface);
+    border-radius: 3vh;
+    padding: 4vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    box-shadow: 0 2vh 5vh rgba(0,0,0,0.2);
+    box-sizing: border-box;
+}
+
+.small-modal {
+    max-width: 400px;
+}
+
+.modal h3 {
+    margin: 0;
+    font-size: 3vh;
+    color: var(--primary);
+}
+
+.modal p {
+    margin: 0;
+    opacity: 0.75;
+    font-size: 1.8vh;
+    line-height: 1.5;
+}
+
+.modal input[type="text"] {
+    padding: 1.5vh;
+    border-radius: 1vh;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 2vh;
+}
+
+.modal label {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    font-size: 1.8vh;
+}
+
+.btn-connect {
+    padding: 1.8vh;
+    border: none;
+    border-radius: 1.5vh;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1vh;
+    font-size: 2vh;
+}
+
+/* ===========================
+   INPUT WRAPPER
+=========================== */
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    width: 100%;
+}
+
+.info-btn {
+    background: #eee;
+    border: none;
+    border-radius: 50%;
+    width: 3.5vh;
+    height: 3.5vh;
+    font-size: 1.8vh;
+    font-weight: bold;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===========================
+   TOOLTIP
+=========================== */
+
+.tooltip {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 1vh 1.5vh;
+    border-radius: 1vh;
+    font-size: 1.6vh;
+    width: 220px;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s;
+    z-index: 10001;
+    pointer-events: none;
+    box-shadow: 0 .5vh 1.5vh rgba(0,0,0,.3);
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: .8vh;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+.settings-content::-webkit-scrollbar {
+    width: .8vh;
+}
+
+.settings-content::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.2);
+    border-radius: 999px;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 800px) {
+
+    .settings-wrapper {
+        flex-direction: column;
+    }
+
+    .settings-sidebar {
+        width: 100%;
+        min-width: unset;
+        flex-direction: row;
+    }
+
+    .nav-btn {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .settings-content {
+        padding: 3vh;
+    }
+
+    .setting-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .setting-value {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+.filter-btn,
+.btn-apply,
+.btn-cancel {
+    transition: filter .08s ease, transform .08s ease;
+}
+
+button:active,
+a:active,
+.filter-btn:active,
+.btn-apply:active,
+.btn-cancel:active {
+    filter: brightness(0.88);
+    transform: scale(0.94);
+}

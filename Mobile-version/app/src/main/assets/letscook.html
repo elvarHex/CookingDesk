@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>CookingDesk - Cooking</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/letscook.css">
+</head>
+
+<body>
+
+<header class="status-bar">
+    <div class="status-left status-center">
+        <img src="img/transparentlogo.svg" class="logo" alt="Logo">
+        <span class="app-title">CookingDesk</span>
+    </div>
+
+    <div class="status-right">
+        <button class="btn-back-circle" onclick="confirmExit()">
+            <img src="img/left.svg" alt="Exit">
+        </button>
+    </div>
+</header>
+
+<div id="loadingOverlay">
+    <div class="loader-container">
+        <div class="loader-ring"></div>
+        <img src="img/transparentlogo.svg" class="loader-logo" alt="loading...">
+    </div>
+</div>
+
+<div class="progress-line" id="progressLine"></div>
+<div class="step-indicator" id="stepIndicator"></div>
+
+<main class="cook-container">
+    <div id="stepBox" class="step-box"></div>
+
+    <div class="controls">
+        <div class="controls-left">
+            <button id="timerBtn" class="btn-circle"><img src="img/timer.svg" alt="Timer"></button>
+            <button id="counterBtn" class="btn-circle"><img src="img/counter.svg" alt="Counter"></button>
+            <button id="videoBtn" class="btn-circle" style="display:none;"><img src="img/video.svg" alt="Video"></button>
+        </div>
+        <div class="controls-right">
+            <button id="prevBtn" class="btn-circle"><img src="img/left.svg" alt="Previous"></button>
+            <button id="nextBtn" class="btn-circle"><img src="img/right.svg" alt="Next"></button>
+        </div>
+    </div>
+</main>
+
+<div id="popup" class="popup-overlay">
+    <div class="popup-box" id="popupBox">
+        <button class="tools-popup-close" onclick="closePopup()">×</button>
+        <iframe id="popupFrame" style="flex:1; width:100%; height:100%; border:none;"></iframe>
+    </div>
+</div>
+
+<div id="videoModal" class="video-modal">
+    <div class="video-box">
+        <iframe id="videoFrame" allowfullscreen></iframe>
+        <button class="video-close" onclick="closeVideo()">Close</button>
+    </div>
+</div>
+
+<div id="confirmPopup" class="popup-overlay">
+    <div class="confirm-box">
+        <div>Are you sure you want to exit the recipe?</div>
+        <div class="confirm-actions">
+            <button class="btn-red" onclick="exitRecipe()">Exit</button>
+            <button class="btn-gray" onclick="closeConfirm()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<div id="errorModal" class="modal-overlay">
+    <div class="modal-box">
+        <div id="errorText" style="color: #c62828; font-weight: bold; margin-bottom: 10px;"></div>
+        <div style="font-size: 14px; color: #555;">An error occurred during loading</div>
+        <button class="btn-reload" onclick="handleReload()">Reload Page</button>
+    </div>
+</div>
+
+<script src="APIsystem/apibridge.js"></script>
+<script src="js/letscook.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

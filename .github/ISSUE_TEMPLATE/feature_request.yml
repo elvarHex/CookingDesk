@@ -1,0 +1,54 @@
+
+name: ✨ Feature Request
+description: Suggest a new feature or improvement.
+title: "[FEATURE] "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea to improve CookingDesk?
+        Describe your suggestion below.
+
+  - type: dropdown
+    id: application
+    attributes:
+      label: Application
+      options:
+        - CookingDesk Desk
+        - CookingDesk Mobile
+        - Both
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or motivation
+      description: What problem would this feature solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe how you would like the feature to work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Have you considered other solutions?
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Screenshots, mockups or other relevant information.
+    validations:
+      required: false

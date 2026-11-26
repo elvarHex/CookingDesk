@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CookingDesk - Tools</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tools.css">
+</head>
+<body>
+
+    <header class="status-bar">
+        <div class="status-left">
+            <img src="img/transparentlogo.svg" class="logo" alt="Logo">
+            <span class="app-title">Tools</span>
+        </div>
+
+        <div class="status-right">
+            <a href="#" onclick="GoHome(event)" class="btn btn-primary">Back</a>
+            <span id="time">--:--</span>
+            <span id="battery">--%</span>
+            <img id="wifi" src="img/wifioff.svg" class="icon" alt="WiFi Status">
+        </div>
+    </header>
+
+    <main class="tools-container">
+        <div class="tools-table">
+
+            <a class="card-button-HC" href="tools/timer.html">
+                <img src="img/timer.svg" alt="Timer">
+                <span>Timer</span>
+            </a>
+
+            <a class="card-button-HC" href="tools/counter.html">
+                <img src="img/counter.svg" alt="Counter">
+                <span>Counter</span>
+            </a>
+
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+@media (max-width: 1024px) {
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .modal-box {
+        width: 94%;
+        padding: 14px;
+    }
+    .results-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        min-height: 250px;
+        padding: 16px;
+    }
+    .card-button {
+        height: 280px;
+    }
+    #loadingOverlay {
+        top: 64px;
+    }
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+.card-button,
+.modal-box button {
+    transition: filter .08s ease, transform .08s ease;
+}
+
+button:active,
+a:active,
+.card-button:active,
+.modal-box button:active {
+    filter: brightness(0.88);
+    transform: scale(0.97);
+}

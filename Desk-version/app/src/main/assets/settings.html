@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>CookingDesk - Settings</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+
+<header class="status-bar">
+    <div class="status-left">
+        <img src="img/transparentlogo.svg" class="logo" alt="Logo">
+        <span class="app-title">Settings</span>
+    </div>
+    <div class="status-right">
+        <button class="btn btn-primary" onclick="location.href='home.html'">
+            Return Home
+        </button>
+    </div>
+</header>
+
+<div class="settings-wrapper">
+    <div class="settings-sidebar">
+        <button class="nav-btn active" data-page="generalPage">
+            General
+        </button>
+        <button class="nav-btn" data-page="infoPage">
+            Info
+        </button>
+    </div>
+
+    <div class="settings-content">
+        <div class="page active-page" id="generalPage">
+            <h2>General</h2>
+            <div class="setting-row">
+                <span>Network status</span>
+                <span class="setting-value" id="netStatus">--</span>
+            </div>
+            <div class="setting-block">
+                <div class="setting-row">
+                    <span>JSONBin</span>
+                    <button id="connectBtn" class="btn btn-primary">
+                        Connect
+                    </button>
+                </div>
+                <div id="binIdDisplay"></div>
+            </div>
+            <div class="setting-row">
+                <div class="label-with-info">
+                    <span>Export data</span>
+                    <button class="info-circle" data-popup="Export all your data, save it, or upload it to another device">
+                        ℹ️
+                    </button>
+                </div>
+                <button class="btn btn-primary" id="exportBtn">
+                    Export
+                </button>
+            </div>
+            <div class="setting-row">
+                <span>Import data</span>
+                <button class="btn btn-primary" id="importBtn">
+                    Importa
+                </button>
+                <input type="file" id="importFile" hidden>
+            </div>
+        </div>
+
+        <div class="page" id="infoPage">
+            <h2>Info</h2>
+            <div class="setting-row">
+                <span>App version</span>
+                <span class="setting-value" id="appVersionText">
+                    Desk - v0.0.1
+                </span>
+            </div>
+            <div class="project-link">
+                Official project page
+            </div>
+            <div class="setting-row">
+                <span>CookingDesk Website</span>
+                <button class="btn btn-primary open-link" data-url="https://elvarhex.github.io/CookingDesk/">
+                    Open
+                </button>
+            </div>
+            <div class="setting-row">
+                <span>CookingDesk Guide</span>
+                <button class="btn btn-primary open-link" data-url="https://elvarhex.github.io/CookingDesk/guide">
+                    Open
+                </button>
+            </div>
+            <div class="setting-row">
+                <span>Github repository</span>
+                <button class="btn btn-primary open-link" data-url="https://github.com/elvarHex/CookingDesk/">
+                    Open
+                </button>
+            </div>
+            <div class="setting-row">
+                <div class="label-with-info">
+                    <span>Github Issue</span>
+                    <button class="info-circle" data-popup="Report bugs or suggest ideas for future releases">
+                        ℹ️
+                    </button>
+                </div>
+                <button class="btn btn-primary open-link" data-url="https://github.com/elvarHex/CookingDesk/issues">
+                    Open
+                </button>
+            </div>
+            <div class="made-by">
+                Made with ❤️ for food lovers by
+                <a href="#" class="open-link" data-url="https://github.com/elvarHex/">
+                    elvarHex
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-backdrop" id="jsonbinModal">
+    <div class="modal">
+        <h3>Connect JSONBin.io</h3>
+        <p>
+            Connect JSONBin.io for your personal and saved recipes.
+            Visit cookingdesk.github.io/guide for more details.
+        </p>
+        <div class="input-wrapper">
+            <input type="text" id="modalApiKey" placeholder="API Key">
+            <button class="info-btn" type="button">i</button>
+            <div class="tooltip">
+                Enter your JSONBin API Key: go to jsonbin.io, log in or register,
+                go to API KEYS section and create an X-Access-Key with
+                Create, Read, Update and Delete permissions.
+                Visit cookingdesk.github.io/guide for more details.
+            </div>
+        </div>
+        <div class="input-wrapper">
+            <input type="text" id="modalIndexId" placeholder="Index Bin ID">
+            <button class="info-btn" type="button">i</button>
+            <div class="tooltip">
+                Paste the Index Bin ID, or create one automatically.
+            </div>
+        </div>
+        <label>
+            <input type="checkbox" id="modalCreateIndex">
+            Create Index
+        </label>
+        <div class="input-wrapper">
+            <input type="text" id="modalSavedId" placeholder="Saved Recipes Bin ID">
+            <button class="info-btn" type="button">i</button>
+            <div class="tooltip">
+                Paste the Saved Bin ID, or create one automatically.
+            </div>
+        </div>
+        <label>
+            <input type="checkbox" id="modalCreateSaved">
+            Create Saved-recipes bin
+        </label>
+        <button class="btn-connect" id="modalConnectBtn">
+            Connect
+        </button>
+        <button class="btn" style="background:transparent;color:var(--primary);font-size:1.6vh;" onclick="document.getElementById('jsonbinModal').classList.remove('show')">
+            Cancel
+        </button>
+    </div>
+</div>
+
+<div class="modal-backdrop" id="infoPopup">
+    <div class="modal small-modal">
+        <h3>Info</h3>
+        <p id="popupText"></p>
+        <button class="btn-connect" id="closePopup">
+            OK
+        </button>
+    </div>
+</div>
+
+<script src="APIsystem/jsonbin.js"></script>
+<script src="js/settings.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CookingDesk</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="status-bar">
+        <div class="status-left">
+            <img src="img/transparentlogo.svg" class="logo" alt="Logo">
+            <span class="app-title">CookingDesk</span>
+        </div>
+
+        <div class="status-right">
+            <span id="time">--:--</span>
+            <span id="battery">--%</span>
+            <img id="wifi" src="img/wifioff.svg" class="icon" alt="WiFi Status">
+            <button class="settings-btn" onclick="location.href='settings.html'">
+                <img src="img/settings.svg" class="icon" alt="Settings">
+            </button>
+        </div>
+    </header>
+
+    <main class="main-grid">
+        <a class="card-button-HC" href="tools.html">
+            <img src="img/tools.svg" alt="Tools">
+            <span>Tools</span>
+        </a>
+
+        <a class="card-button-HC" href="cook.html">
+            <img src="img/cook.svg" alt="Cook">
+            <span>Cook</span>
+        </a>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

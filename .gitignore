@@ -1,0 +1,36 @@
+
+# Android Studio
+.idea/
+*.iml
+
+# Kotlin
+.kotlin/
+
+# Gradle
+.gradle/
+**/build/
+
+# Local configuration
+local.properties
+
+# Android build artifacts
+.externalNativeBuild/
+.cxx/
+captures/
+**/release/
+**/outputs/
+
+# Generated packages
+*.apk
+*.aab
+*.dm
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Operating systems
+.DS_Store
+Thumbs.db
+

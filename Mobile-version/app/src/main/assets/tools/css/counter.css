@@ -1,0 +1,77 @@
+.counter-container {
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 24px;
+}
+
+.counter-display {
+    font-size: 80px;
+    font-weight: 800;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.counter-display span {
+    min-width: 140px;
+    text-align: center;
+}
+
+.counter-buttons button {
+    font-size: 48px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background: var(--primary);
+}
+
+.control-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-options, .btn-reset {
+    padding: 14px 28px;
+    border-radius: 16px;
+    background: var(--primary);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.limit-warning {
+    color: orange;
+}
+
+.limit-exceeded {
+    color: red;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+.btn-options,
+.btn-reset {
+    transition: filter .08s ease, transform .08s ease;
+}
+
+button:active,
+a:active,
+.btn-options:active,
+.btn-reset:active {
+    filter: brightness(0.88);
+    transform: scale(0.94);
+}

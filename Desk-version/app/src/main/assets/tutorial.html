@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#003d20">
+    <title>CookingDesk — Tutorial</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tutorial.css">
+</head>
+<body>
+
+<div class="portrait-warning">
+    <h2>Rotate your device</h2>
+    <p>CookingDesk only works in landscape orientation.<br>The tutorial will continue as soon as you rotate the screen.</p>
+</div>
+
+<div class="tutorial-card">
+
+    <div class="step active" id="step-1">
+        <h1>Welcome to CookingDesk!</h1>
+        <img src="img/transparentlogo.svg" alt="Logo" class="logo" onerror="this.src='https://via.placeholder.com/150x100?text=Logo'">
+        <p>The tutorial and guided setup begin!</p>
+        <button class="btn-round" onclick="nextStep(1, 2)">
+            <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6a.996.996 0 1 0-1.41 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+        </button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" id="step-2">
+        <h2>What is CookingDesk?</h2>
+        <p>CookingDesk is your personalized, free, and secure kitchen assistant. You can cook recipes from around the world (from themealdb.com), cocktails (from thecocktaildb.com), or upload your own recipes to the cloud.</p>
+
+        <button class="btn-round" onclick="nextStep(2, 3)">
+            <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6a.996.996 0 1 0-1.41 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+        </button>
+
+        <button class="btn-skip" onclick="importTutorialData()">
+            Import data
+        </button>
+
+        <input type="file" id="tutorial-import-file" hidden>
+    </div>
+
+    <div class="step" id="step-3">
+        <h2>Let's connect the cloud...</h2>
+        <p>Enter your JSONBin API Key...</p>
+
+        <input type="text" id="api-key-input" placeholder="Paste the X-Access-Key here...">
+
+        <button class="btn-round" onclick="saveApiKeyAndNext()">
+            <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6a.996.996 0 1 0-1.41 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+        </button>
+
+        <br>
+        <button class="btn-skip" onclick="skipCloud()">Skip Cloud Setup</button>
+    </div>
+
+    <div class="step" id="step-4">
+        <h2>Let's connect the cloud...</h2>
+        <p>Do you want to create a recipe index file, or do you already have one?</p>
+
+        <div class="btn-group">
+            <button class="btn-action" id="btn-create-index" onclick="createBin('index')">I want to create it</button>
+            <button class="btn-action" id="btn-link-index" onclick="toggleInput('index-id-container', 'btn-link-index')">Link files</button>
+        </div>
+
+        <div id="index-id-container" class="hidden">
+            <input type="text" id="index-id-input" placeholder="Paste the Index Bin ID here...">
+        </div>
+
+        <button class="btn-round" onclick="saveBinIdAndNext('index-id-input','jsonbin_index_id',4,5)">
+            <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6a.996.996 0 1 0-1.41 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+        </button>
+    </div>
+
+    <div class="step" id="step-5">
+        <h2>Let's connect the cloud...</h2>
+        <p>Do you want to create a file for your saved recipes or do you already have one?</p>
+
+        <div class="btn-group">
+            <button class="btn-action" id="btn-create-saved" onclick="createBin('saved')">I want to create it</button>
+            <button class="btn-action" id="btn-link-saved" onclick="toggleInput('saved-id-container', 'btn-link-saved')">Link files</button>
+        </div>
+
+        <div id="saved-id-container" class="hidden">
+            <input type="text" id="saved-id-input" placeholder="Paste the Saved Bin ID here...">
+        </div>
+
+        <button class="btn-round" onclick="saveBinIdAndNext('saved-id-input','jsonbin_saved_id',5,6)">
+            <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6a.996.996 0 1 0-1.41 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+        </button>
+    </div>
+
+    <div class="step" id="step-6">
+        <h2>Download the mobile app</h2>
+        <p>Use it to create and discover recipes to cook here—hands-free and without wasting time.</p>
+
+        <img src="img/qrcode-mobile-version.svg" class="square-img">
+
+        <button class="btn-round" onclick="nextStep(6, 7)">
+            <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6a.996.996 0 1 0-1.41 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+        </button>
+    </div>
+
+    <div class="step" id="step-7">
+        <h2>Everything is ready!!</h2>
+        <p>Now everything is ready to start cooking!!</p>
+
+        <button class="btn-action" onclick="finishTutorial()">
+            End of tutorial!
+        </button>
+    </div>
+
+</div>
+
+<script src="js/tutorial.js"></script>
+</body>
+</html>

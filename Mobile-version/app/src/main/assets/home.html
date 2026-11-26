@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CookingDesk</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="status-bar">
+    <div class="status-left status-center">
+        <img src="img/transparentlogo.svg" class="logo" alt="Logo">
+        <span class="app-title">CookingDesk</span>
+    </div>
+
+    <div class="status-right">
+        <button class="settings-btn" onclick="location.href='settings.html'">
+            <img src="img/settings.svg" class="icon" alt="Settings">
+        </button>
+    </div>
+</header>
+
+<main class="home-container">
+    <h1 class="home-title">What do you want to cook today?</h1>
+
+    <div class="home-search-bar">
+        <input type="text" id="homeSearchInput" placeholder="Recipe name">
+        <button class="search-action" id="homeSearchBtn">Search</button>
+    </div>
+
+    <div class="main-grid">
+        <a class="card-button-HC" href="tools.html">
+            <img src="img/tools.svg" alt="Tools">
+            <span>Tools</span>
+        </a>
+
+        <a class="card-button-HC" href="saved.html" id="savedLink">
+            <img src="img/saved.svg" alt="Saved">
+            <span>Saved recipes</span>
+        </a>
+
+        <a class="card-button-HC card-wide" href="manage.html">
+            <img src="img/create.svg" alt="Create">
+            <span>My recipes</span>
+        </a>
+    </div>
+</main>
+
+<div id="cloudModal" class="cloud-modal-overlay">
+    <div class="cloud-modal">
+        <h2>No cloud service</h2>
+        <p>You can't access cloud features because you haven't connected jsonbin.io. Click Settings to connect your account.</p>
+        <div class="cloud-modal-actions">
+            <button class="cloud-modal-btn-cancel" onclick="closeCloudModal()">Cancel</button>
+            <a href="settings.html" class="cloud-modal-btn-settings">Settings</a>
+        </div>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>CookingDesk - Search Recipes</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+
+<header class="status-bar">
+    <div class="status-left status-center">
+        <img src="img/transparentlogo.svg" class="logo" alt="logo">
+        <span class="app-title">Search</span>
+    </div>
+
+    <div class="status-right">
+        <button class="btn-back-circle" onclick="GoHome(event)">
+            <img src="img/left.svg" alt="Back">
+        </button>
+    </div>
+</header>
+
+<div id="loadingOverlay">
+    <div class="loader-container">
+        <div class="loader-ring"></div>
+        <img src="img/transparentlogo.svg" class="loader-logo" alt="loading...">
+    </div>
+</div>
+
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Recipe name">
+    <button class="filter-btn" id="openFilterBtn" title="Filters">
+        <img src="img/filter.svg" alt="Filters">
+        <span class="filter-indicator" id="filterIndicator" aria-hidden="true"></span>
+    </button>
+    <button class="search-action" id="searchBtn">Search</button>
+</div>
+
+<main class="results-grid" id="resultsGrid" aria-live="polite"></main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<div class="modal-backdrop" id="filterModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+            <div class="modal-title" id="modalTitle">Search filters</div>
+            <button class="btn-cancel" id="closeModalBtn" aria-label="Close popup">✕</button>
+        </div>
+        <div class="modal-body">
+            <div>
+                <label for="modalAreaSelect">Area (Kitchen)</label>
+                <select id="modalAreaSelect" style="width:100%; padding:10px; border-radius:10px; border:1px solid #ccc;">
+                    <option value="">All areas</option>
+                </select>
+            </div>
+            <div>
+                <label>Recipe origin</label>
+                <div id="apiContainer" style="display:flex; flex-direction:column; gap:6px; margin-top:6px;"></div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="modalClearBtn">Remove filter</button>
+                <button class="btn-apply" id="modalApplyBtn">Apply</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="cloudModal" class="cloud-modal-overlay">
+    <div class="cloud-modal">
+        <h2>No cloud service</h2>
+        <p>You can't access cloud features because you haven't connected jsonbin.io. Click Settings to connect your account.</p>
+        <div class="cloud-modal-actions">
+            <button class="cloud-modal-btn-cancel" onclick="closeCloudModal()">Cancel</button>
+            <a href="settings.html" class="cloud-modal-btn-settings">Settings</a>
+        </div>
+    </div>
+</div>
+
+<div id="errorModal" class="modal-overlay">
+    <div class="modal-box">
+        <div id="errorText" style="color: #c62828; font-weight: bold; margin-bottom: 10px;"></div>
+        <div style="font-size: 14px; color: #555;">Try to reload the page</div>
+        <button class="btn-reload" onclick="handleReload()">Reload</button>
+    </div>
+</div>
+
+<script src="APIsystem/apibridge.js"></script>
+<script src="js/search.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
